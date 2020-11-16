@@ -1,0 +1,11 @@
+:root {
+  --spotifyGrey: #282828;
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 65px;
+  width: 100%;
+  background-color: var(--spotifyGrey);
+  padding: 20px;
+}
