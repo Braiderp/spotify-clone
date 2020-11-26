@@ -1,7 +1,14 @@
 import React from "react";
 import "./Sidebar.css";
 import SidebarOption from "./SidebarOption";
+import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
+import SearchIcon from "@material-ui/icons/Search";
+import LibraryMusicIcon from "@material-ui/icons/LibraryMusic";
+import HomeIcon from "@material-ui/icons/Home";
+import { useDataLayerValue } from "./DataLayer";
+
 function Sidebar() {
+  const [{ playlists }, dispatch] = useDataLayerValue();
   return (
     <div className="sidebar">
       <img
@@ -9,11 +16,19 @@ function Sidebar() {
         src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
         alt="spotify"
       />
-      <SidebarOption title="Home" />
+      <SidebarOption Icon={HomeIcon} title="Home" />
 
-      <SidebarOption title="Search" />
+      <SidebarOption Icon={PlayCircleFilledIcon} title="Search" />
 
-      <SidebarOption title="Your Library" />
+      <SidebarOption Icon={LibraryMusicIcon} title="Your Library" />
+
+      <br />
+      <strong className="sidebar__title">PLAYlISTS</strong>
+
+      <hr />
+      {playlists?.items?.map(playlist => (
+        <SidebarOption key={playlist.id} title={playlist.name} />
+      ))}
     </div>
   );
 }
