@@ -13,10 +13,7 @@ import { Grid, Slider } from "@material-ui/core";
 import { useDataLayerValue } from "./DataLayer";
 
 function Footer({ spotify }) {
-  const [
-    { token, item, playing, discover_weekly },
-    dispatch
-  ] = useDataLayerValue();
+  const [{ item, playing }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
     spotify.getMyCurrentPlaybackState().then(r => {
