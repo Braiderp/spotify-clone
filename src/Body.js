@@ -46,7 +46,7 @@ function Body({ spotify }) {
       });
   };
 
-  console.log("discover weekly from bodyjs", discover_weekly);
+  // console.log("discover weekly from bodyjs", discover_weekly);
   return (
     <div className="body">
       <Header spotify={spotify} />
